@@ -1,0 +1,107 @@
+.kontakt-section {
+  padding: 4rem 1rem;
+  background: #f7f7f7;
+
+  .kontakt-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: flex-start;
+
+    .faq-box {
+      flex: 1 1 400px;
+      background: #fffefc;
+      border: 1px solid #e0e0e0;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+      h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+        color: #333;
+      }
+
+      .faq-item {
+        margin-bottom: 1.5rem;
+
+        strong {
+          color: #000;
+          display: block;
+          margin-bottom: 0.3rem;
+        }
+
+        p {
+          margin: 0;
+          color: #444;
+          font-size: 0.95rem;
+          line-height: 1.5;
+        }
+
+        ul {
+          margin-top: 0.5rem;
+          padding-left: 1.2rem;
+
+          li {
+            margin-bottom: 0.75rem;
+            color: #333;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+
+    .form-box {
+      flex: 1 1 600px;
+    }
+  }
+}
+
+.tarif-tabelle {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+
+  thead {
+    background-color: #ffd700;
+    color: #000;
+
+    th {
+      padding: 1rem;
+      text-align: left;
+      font-weight: bold;
+    }
+  }
+
+  tbody {
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    small {
+      color: #666;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+// Mobile Ansicht
+@media (max-width: 768px) {
+  .kontakt-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

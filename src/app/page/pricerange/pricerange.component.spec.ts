@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { PricerangeComponent } from './pricerange.component';
+
+describe('PricerangeComponent', () => {
+  let component: PricerangeComponent;
+  let fixture: ComponentFixture<PricerangeComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [PricerangeComponent]
+    })
+    .compileComponents();
+    
+    fixture = TestBed.createComponent(PricerangeComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

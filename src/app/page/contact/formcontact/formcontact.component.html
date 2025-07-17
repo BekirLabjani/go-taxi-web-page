@@ -1,0 +1,51 @@
+<form [formGroup]="kontaktForm" (ngSubmit)="onSubmit()">
+  <div class="left">
+    <label for="name">Name</label>
+    <input id="name" formControlName="name" placeholder="Max Mustermann" />
+
+    <label for="telefon">Telefonnummer</label>
+    <input
+      id="telefon"
+      formControlName="telefon"
+      placeholder="+43 123 456789"
+    />
+
+    <label for="art">Art der Reservierung</label>
+    <select id="art" formControlName="art">
+      <option value="">Bitte wählen</option>
+      <option value="Taxi">Taxi</option>
+      <option value="Botenfahrt">Botenfahrt</option>
+    </select>
+
+    <label for="start">Abholadresse</label>
+    <input
+      id="start"
+      formControlName="start"
+      placeholder="z. B. Hauptplatz 1, 8010 Graz"
+    />
+  </div>
+  <div class="right">
+    <label for="ziel">Zieladresse</label>
+    <input
+      id="ziel"
+      formControlName="ziel"
+      placeholder="z. B. Bahnhofstraße 10, 8020 Graz"
+    />
+
+    <label for="datum">Datum</label>
+    <input id="datum" type="date" formControlName="datum" />
+
+    <label for="uhrzeit">Uhrzeit</label>
+    <input id="uhrzeit" type="time" formControlName="uhrzeit" />
+
+    <label for="nachricht">Nachricht</label>
+    <textarea
+      id="nachricht"
+      formControlName="nachricht"
+      placeholder="Personen Anzahl, Weitere Infos zur Fahrt, Sonderwünsche …"
+    ></textarea>
+  </div>
+  <button type="submit" [disabled]="kontaktForm.invalid">
+    Anfrage absenden
+  </button>
+</form>
