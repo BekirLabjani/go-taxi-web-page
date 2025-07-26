@@ -1,8 +1,7 @@
 
 .hero {
-    display: block;
   width: 100%;
-  max-width: 1920px;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -10,6 +9,8 @@
   justify-content: center;
   padding: 2rem;
   gap: 50px;
+  box-sizing: border-box;
+
   .hero-content {
     flex: 1 1 300px;
     max-width: 600px;
@@ -34,7 +35,7 @@
       }
     }
   }
-
+  
   .hero-image {
     flex: 1 1 300px;
     max-width: 600px;
