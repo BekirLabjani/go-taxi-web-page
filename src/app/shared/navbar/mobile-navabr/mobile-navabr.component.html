@@ -1,0 +1,25 @@
+<header class="mobile-navbar">
+    <div class="mobile-navbar-header">
+        <a href="/" class="mobile-navbar-logo">
+            <img src="assets/img/logo/logo-2-removebg-preview.png" alt="Firmenlogo">
+        </a>
+      <button class="mobile-navbar-toggler"
+        aria-label="Menü öffnen"
+        aria-expanded="false"
+        (click)="toggleMenu()"
+        #togglerBtn>
+    <span class="toggler-icon"></span>
+    <span class="toggler-icon"></span>
+    <span class="toggler-icon"></span>
+</button>
+    </div>
+
+<nav class="mobile-navbar-nav" #navMenu>
+  <ul>
+    <li><a href="/" (click)="toggleMenu()">Startseite</a></li>
+    <li><a href="#price" (click)="toggleMenu()">Preis</a></li>
+    <li><a href="/ueber-uns" (click)="toggleMenu()">Über Uns</a></li>
+    <li><a href="/kontakt" (click)="toggleMenu()">Kontakt</a></li>
+  </ul>
+</nav>
+</header>

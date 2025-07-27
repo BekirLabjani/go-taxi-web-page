@@ -1,0 +1,130 @@
+/* ========================================= */
+/* SCSS für die Mobile Navbar */
+/* ========================================= */
+
+.mobile-navbar {
+    background-color: #333; // Hintergrundfarbe deiner Wahl
+    color: #fff; // Textfarbe
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative; // Wichtig für das absolute Positionieren des Menüs
+    z-index: 1000; // Stellt sicher, dass die Navbar über anderen Inhalten liegt
+    max-width: 100%;
+}
+
+.mobile-navbar-header {
+    display: flex;
+    justify-content: space-between; // Logo links, Burger-Button rechts
+    align-items: center; // Vertikale Zentrierung
+}
+
+.mobile-navbar-logo {
+    display: block; // Damit img richtig sitzt
+
+    img {
+        height: 40px; // Größe deines Logos anpassen
+        width: auto;
+        display: block; // Entfernt zusätzlichen Leerraum unter dem Bild
+    }
+}
+
+.mobile-navbar-toggler {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem; // Bereich um den Burger-Button zum Klicken
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px; // Breite des Burger-Buttons
+    height: 25px; // Höhe des Burger-Buttons
+}
+
+.toggler-icon {
+    display: block;
+    width: 100%;
+    height: 3px; // Dicke der Burger-Linien
+    background-color: #fff; // Farbe der Burger-Linien
+    border-radius: 2px; // Leichte Rundung der Linien
+    transition: all 0.3s ease-in-out; // Animation für das X-Symbol
+}
+
+.mobile-navbar-toggler.active .toggler-icon:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+.mobile-navbar-toggler.active .toggler-icon:nth-child(2) {
+    opacity: 0; // Mittlere Linie ausblenden
+}
+
+.mobile-navbar-toggler.active .toggler-icon:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg); // Untere Linie zum X drehen
+}
+
+
+.mobile-navbar-nav {
+    display: none; // Standardmäßig ausgeblendet
+    position: absolute;
+    top: 100%; // Positioniert unter dem Header
+    left: 0;
+    width: 100%;
+    background-color: #444; // Hintergrundfarbe des aufgeklappten Menüs
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; // Für den Fall, dass es viele Links gibt
+    max-height: calc(100vh - 60px); // Beispiel: Bildschirmhöhe - Höhe der Navbar
+    padding-bottom: 1rem; // Zusätzlicher Platz am Ende
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); // Trennlinie zwischen Links
+
+        &:last-child {
+            border-bottom: none; // Keine Trennlinie am letzten Element
+        }
+    }
+
+    a {
+        display: block; // Link füllt den gesamten Bereich
+        padding: 1rem 1.5rem;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: #555; // Hover-Effekt
+        }
+    }
+}
+
+/* Klasse, die per JavaScript hinzugefügt wird, um das Menü anzuzeigen */
+.mobile-navbar-nav.active {
+    display: block;
+}
+
+
+app-navbar {
+    display: none;
+}
+
+app-mobile-navabr {
+    display: block;
+}
+
+@media (min-width: 700px) {
+
+    // Ab 700px wird die Desktop-Navbar angezeigt
+    app-navbar {
+        display: block;
+    }
+
+    // Und die mobile Navbar ausgeblendet
+    app-mobile-navabr {
+        display: none;
+    }
+}
