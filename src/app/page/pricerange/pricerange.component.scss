@@ -1,13 +1,15 @@
 /* Angepasste Stile für eine Höhe von 700px */
 
 .kontakt-section {
-  padding: 2.5rem 1rem; /* angepasst */
+  padding: 2.5rem 1rem;
+  /* angepasst */
   background: rgb(247, 247, 247);
 
   .kontakt-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem; /* angepasst */
+    gap: 2rem;
+    /* angepasst */
     max-width: 1400px;
     margin: 0 auto;
     align-items: flex-start;
@@ -17,18 +19,22 @@
       gap: 2rem;
       background: #fffefc;
       border: 1px solid #e0e0e0;
-      padding: 1.5rem; /* angepasst */
+      padding: 1.5rem;
+      /* angepasst */
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 
       h3 {
-        font-size: 1.3rem; /* angepasst */
-        margin-bottom: 1.2rem; /* angepasst */
+        font-size: 1.3rem;
+        /* angepasst */
+        margin-bottom: 1.2rem;
+        /* angepasst */
         color: #333;
       }
 
       .faq-item {
-        margin-bottom: 1.2rem; /* angepasst */
+        margin-bottom: 1.2rem;
+        /* angepasst */
 
         strong {
           color: #000;
@@ -58,8 +64,10 @@
 .tarif-tabelle {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1.5rem; /* angepasst */
-  font-size: 0.9rem; /* angepasst */
+  margin-top: 1.5rem;
+  /* angepasst */
+  font-size: 0.9rem;
+  /* angepasst */
   background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
@@ -70,7 +78,8 @@
     color: #000;
 
     th {
-      padding: 0.75rem 1rem; /* angepasst */
+      padding: 0.75rem 1rem;
+      /* angepasst */
       text-align: left;
       font-weight: bold;
     }
@@ -78,7 +87,8 @@
 
   tbody {
     td {
-      padding: 0.75rem 1rem; /* angepasst */
+      padding: 0.75rem 1rem;
+      /* angepasst */
       border-bottom: 1px solid #eee;
       vertical-align: top;
     }
@@ -109,4 +119,60 @@
   border: 1px solid #e0e0e0;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+@media (max-width: 576px) {
+  .faq-box {
+    flex-direction: column;
+  }
+
+  .kontakt-wrapper {
+    height: 1400px;
+  }
+}
+
+@media (max-width: 410px) {
+  .faq-box {
+  
+    justify-content: center !important;
+    width: 320px;
+  }
+
+  .kontakt-wrapper {
+    height: 1650px;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .tarif-box {
+    display: flex;
+    justify-content: center;
+  }
+  .kontakt-section {
+    padding: 0;
+  }
+}
+@media (max-width: 375px) {
+  .faq-box {
+  
+    justify-content: center !important;
+    width: 255px !important;
+  }
+
+  .kontakt-wrapper {
+    height: 1650px;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .tarif-box {
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 1px -8px #0000000d;
+    border: none;
+  }
+  .kontakt-section {
+    padding: 0;
+  }
 }

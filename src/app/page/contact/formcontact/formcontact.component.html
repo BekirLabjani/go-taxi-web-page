@@ -2,6 +2,8 @@
   <div class="left">
     <label for="name">Name</label>
     <input id="name" formControlName="name" placeholder="Max Mustermann" />
+    <label for="email">Email</label>
+    <input id="email" formControlName="email" placeholder="max@gmail.com" />
 
     <label for="telefon">Telefonnummer</label>
     <input
@@ -49,3 +51,7 @@
     Anfrage absenden
   </button>
 </form>
+<div class="success-message" *ngIf="successMessageVisible">
+  ✅ Vielen Dank für deine Anfrage! Wir melden uns in Kürze.
+</div>
+
