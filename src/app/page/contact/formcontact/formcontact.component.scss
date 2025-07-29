@@ -103,19 +103,6 @@ button[type="submit"] {
 }
 
 // Responsive Anpassungen für mobile Geräte
-@media (max-width: 768px) {
-  form {
-    flex-direction: column; // Spalten untereinander anordnen
-    gap: 0; // Abstand zwischen den Spalten entfernen
-    padding: 1.5rem;
-  }
-
-  input,
-  select,
-  textarea {
-    margin-bottom: 1.2rem; // Abstände für mobile Ansicht anpassen
-  }
-}
 
 
 // animation 
@@ -137,6 +124,7 @@ button[type="submit"] {
   box-sizing: border-box;
   top: -110px;
 }
+
 
 @keyframes fadeInOut {
   0% {
@@ -296,5 +284,19 @@ button[type="submit"] {
   .success-message {
     font-size: 0.9rem;
     padding: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  form {
+    flex-direction: column; // Spalten untereinander anordnen
+    gap: 0; // Abstand zwischen den Spalten entfernen
+    padding: 1.5rem;
+  }
+
+  input,
+  select,
+  textarea {
+    margin-bottom: 1.2rem; // Abstände für mobile Ansicht anpassen
   }
 }

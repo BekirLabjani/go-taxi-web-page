@@ -2,6 +2,7 @@
   <div class="left">
     <label for="name">Name</label>
     <input id="name" formControlName="name" placeholder="Max Mustermann" />
+
     <label for="email">Email</label>
     <input id="email" formControlName="email" placeholder="max@gmail.com" />
 
@@ -17,6 +18,7 @@
       <option value="">Bitte wählen</option>
       <option value="Taxi">Taxi</option>
       <option value="Botenfahrt">Botenfahrt</option>
+      <option value="Botenfahrt">VIP-Fahrt</option>
     </select>
 
     <label for="start">Abholadresse</label>
@@ -25,6 +27,19 @@
       formControlName="start"
       placeholder="z. B. Hauptplatz 1, 8010 Graz"
     />
+    <div class="checkbox-group-checkbox">
+        <label class="label-checkbox-2" for="anrufBeiAnkunft"
+        >
+      <input
+        type="checkbox"
+        id="anrufBeiAnkunft"
+        formControlName="anrufBeiAnkunft"
+        class="checkbox-2"
+      />
+      <div class="checkmark"></div>
+    Anruf bei Ankunft gewünscht</label
+      >
+    </div>
   </div>
   <div class="right">
     <label for="ziel">Zieladresse</label>
@@ -33,7 +48,30 @@
       formControlName="ziel"
       placeholder="z. B. Bahnhofstraße 10, 8020 Graz"
     />
-
+    <div class="check-container">
+      <div class="checkbox-group-checkbox">
+        <label class="label-checkbox-3" for="bigbag">
+        <input
+          type="checkbox"
+          id="bigbag"
+          formControlName="bigbag"
+          class="checkbox-2"
+        />
+        <div class="checkmark"></div>
+        Viele Koffer</label>
+      </div>
+      <div class="checkbox-group-checkbox">
+        <label class="label-checkbox-3" for="bigcar">
+        <input
+          type="checkbox"
+          id="bigcar"
+          formControlName="bigcar"
+          class="checkbox-2"
+        />
+        <div class="checkmark"></div>
+        Großen Wagen</label>
+      </div>
+    </div>
     <label for="datum">Datum</label>
     <input id="datum" type="date" formControlName="datum" />
 
@@ -54,4 +92,3 @@
 <div class="success-message" *ngIf="successMessageVisible">
   ✅ Vielen Dank für deine Anfrage! Wir melden uns in Kürze.
 </div>
-
