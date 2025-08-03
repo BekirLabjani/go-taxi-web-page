@@ -1,12 +1,18 @@
-// src/app/components/nav/nav.component.scss
+.navbar-wrapper {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #ffcc00; // z. B. farbige Linie
+}
+
 .navbar {
+  max-width: 1920px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 90px;
   padding: 15px 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-family: 'Poppins';
 
   .logo {
@@ -24,7 +30,6 @@
     gap: 1.5rem;
     margin: 0;
     padding: 0;
-    cursor: pointer;
 
     li a {
       text-decoration: none;
