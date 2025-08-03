@@ -20,13 +20,16 @@ export class FormcontactComponent implements OnInit {
     this.kontaktForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      telefon: ['', [Validators.required, Validators.pattern(/^(|0)[0-9 ]+$/)]],
+      mobileNumber: ['', [Validators.required, Validators.pattern(/^(|0)[0-9 ]+$/)]],
       art: ['', Validators.required],
       start: ['', Validators.required],
       ziel: ['', Validators.required],
       datum: ['', Validators.required],
       uhrzeit: ['', Validators.required],
-      nachricht: ['']
+      nachricht: [''],
+      customerCall: [false],
+      largeCar: [false],
+      lotsOfSuitcases: [false]
     });
   }
 
@@ -38,14 +41,19 @@ export class FormcontactComponent implements OnInit {
       const templateParams = {
         name: daten.name,
         email: daten.email,
-        telefon: daten.telefon,
+        mobileNumber: daten.mobileNumber,
         art: daten.art,
         start: daten.start,
         ziel: daten.ziel,
         datum: daten.datum,
         uhrzeit: daten.uhrzeit,
-        nachricht: daten.nachricht
+        nachricht: daten.nachricht,
+        customerCall: daten.customerCall ? 'Ja' : 'Nein',
+        largeCar: daten.largeCar ? 'Ja' : 'Nein',
+        lotsOfSuitcases: daten.lotsOfSuitcases ? 'Ja' : 'Nein'
       };
+
+    console.log('Gesendete Daten:', templateParams); // <-- Kontrolle
 
       emailjs.send(
         'service_36pq0vn',   // z.B. 'service_xxx'

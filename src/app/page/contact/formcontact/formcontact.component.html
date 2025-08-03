@@ -6,10 +6,10 @@
     <label for="email">Email</label>
     <input id="email" formControlName="email" placeholder="max@gmail.com" />
 
-    <label for="telefon">Telefonnummer</label>
+    <label for="mobileNumber">Telefonnummer</label>
     <input
-      id="telefon"
-      formControlName="telefon"
+      id="mobileNumber"
+      formControlName="mobileNumber"
       placeholder="+43 123 456789"
     />
 
@@ -27,19 +27,36 @@
       formControlName="start"
       placeholder="z. B. Hauptplatz 1, 8010 Graz"
     />
-    <div class="checkbox-group-checkbox">
-        <label class="label-checkbox-2" for="anrufBeiAnkunft"
-        >
-      <input
-        type="checkbox"
-        id="anrufBeiAnkunft"
-        formControlName="anrufBeiAnkunft"
-        class="checkbox-2"
-      />
-      <div class="checkmark"></div>
-    Anruf bei Ankunft gewünscht</label
-      >
+
+    <!-- Ceckbox 1 -->
+    <div class="checkbox-container">
+      <label class="checkbox-label" for="customerCall">
+        <input
+          type="checkbox"
+          id="customerCall"
+          formControlName="customerCall"
+        />
+        <div class="checkbox-custom">
+          <svg
+            class="checkbox-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        Anruf bei Ankunft
+      </label>
     </div>
+
+    <!-- end box 1 -->
   </div>
   <div class="right">
     <label for="ziel">Zieladresse</label>
@@ -48,30 +65,63 @@
       formControlName="ziel"
       placeholder="z. B. Bahnhofstraße 10, 8020 Graz"
     />
+    <!-- checkbox 2 -->
     <div class="check-container">
-      <div class="checkbox-group-checkbox">
-        <label class="label-checkbox-3" for="bigbag">
-        <input
-          type="checkbox"
-          id="bigbag"
-          formControlName="bigbag"
-          class="checkbox-2"
-        />
-        <div class="checkmark"></div>
-        Viele Koffer</label>
+      <div class="checkbox-container">
+        <label class="checkbox-label" for="largeCar">
+          <input
+            type="checkbox"
+            id="largeCar"
+            formControlName="largeCar"
+          />
+          <div class="checkbox-custom">
+            <svg
+              class="checkbox-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          Großes Auto
+        </label>
       </div>
-      <div class="checkbox-group-checkbox">
-        <label class="label-checkbox-3" for="bigcar">
-        <input
-          type="checkbox"
-          id="bigcar"
-          formControlName="bigcar"
-          class="checkbox-2"
-        />
-        <div class="checkmark"></div>
-        Großen Wagen</label>
+
+      <div class="checkbox-container">
+        <label class="checkbox-label" for="lotsOfSuitcases">
+          <input
+            type="checkbox"
+            id="lotsOfSuitcases"
+            formControlName="lotsOfSuitcases"
+          />
+          <div class="checkbox-custom">
+            <svg
+              class="checkbox-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          Viele Koffer
+        </label>
       </div>
     </div>
+    <!-- check box 2 ende -->
     <label for="datum">Datum</label>
     <input id="datum" type="date" formControlName="datum" />
 
@@ -88,6 +138,7 @@
   <button type="submit" [disabled]="kontaktForm.invalid">
     Anfrage absenden
   </button>
+  <span>Weiter unten stehen die Preise Vielen Dank</span>
 </form>
 <div class="success-message" *ngIf="successMessageVisible">
   ✅ Vielen Dank für deine Anfrage! Wir melden uns in Kürze.
