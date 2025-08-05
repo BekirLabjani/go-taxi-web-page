@@ -107,7 +107,6 @@
 // Mobile Ansicht bleibt unverändert
 @media (max-width: 768px) {
   .kontakt-wrapper {
-    flex-direction: column;
     gap: 2rem;
   }
 }
@@ -128,7 +127,7 @@
   }
 
   .kontakt-wrapper {
-    height: 1400px;
+    height: auto;
   }
 }
 
@@ -140,7 +139,7 @@
   }
 
   .kontakt-wrapper {
-    height: 1650px;
+    height: 1480px;
     flex-direction: row;
     justify-content: center;
   }
@@ -161,7 +160,7 @@
   }
 
   .kontakt-wrapper {
-    height: 1650px;
+    height: 1540px;
     flex-direction: row;
     justify-content: center;
   }
