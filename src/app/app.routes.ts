@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { HomepageComponent } from './page/homepage/homepage.component';
+import { LandingPageComponent } from './page/landing-page/landing-page.component';
 
 export const routes: Routes = [
-      { path: '', component: HomepageComponent },
+      { path: '', component: LandingPageComponent },
 ];

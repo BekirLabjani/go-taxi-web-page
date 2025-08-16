@@ -1,44 +1,13 @@
-.navbar-wrapper {
+.navbar {
+  max-width: 100%;
   width: 100%;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-bottom: 2px solid #ffcc00; // z. B. farbige Linie
+  height: 80px;
 }
 
-.navbar {
-  max-width: 1920px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 90px;
-  padding: 15px 20px;
-  font-family: 'Poppins';
-
-  .logo {
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-
-  img {
-    height: 90px;
-  }
-
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
-
-    li a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-
-      &:hover {
-        color: #ffcc00;
-      }
+.logo {
+  >a {
+    >img {
+      height: 80px;
     }
   }
 }
