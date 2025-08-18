@@ -1,0 +1,278 @@
+<app-navbar></app-navbar>
+<div class="form-container">
+  <form
+    #bookingForm="ngForm"
+    (ngSubmit)="onSubmit(bookingForm)"
+    class="booking-form"
+    novalidate
+  >
+    <!-- Abschnitt: Fahrtangaben -->
+    <fieldset class="card">
+      <legend>Fahrt buchen</legend>
+
+      <div class="name-container">
+        <!-- Name -->
+        <div
+          class="field"
+          [class.invalid]="name.invalid && (name.dirty || name.touched)"
+        >
+          <label for="name">Ihr Name *</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            ngModel
+            #name="ngModel"
+            required
+            minlength="2"
+            autocomplete="name"
+            placeholder="Max Mustermann"
+          />
+          <div
+            class="errors"
+            *ngIf="name.invalid && (name.dirty || name.touched)"
+          >
+            <p *ngIf="name.errors?.['required']">Name ist erforderlich.</p>
+            <p *ngIf="name.errors?.['minlength']">Mindestens 2 Zeichen.</p>
+          </div>
+        </div>
+
+        <!-- Telefon -->
+        <div
+          class="field"
+          [class.invalid]="phone.invalid && (phone.dirty || phone.touched)"
+        >
+          <label for="phone">Telefonnummer *</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            ngModel
+            #phone="ngModel"
+            required
+            pattern="^\\+?[0-9\\s\\-]{7,15}$"
+            autocomplete="tel"
+            placeholder="+43 660 123 4567"
+          />
+          <div
+            class="errors"
+            *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+          >
+            <p *ngIf="phone.errors?.['required']">
+              Telefonnummer ist erforderlich.
+            </p>
+            <p *ngIf="phone.errors?.['pattern']">
+              Bitte gültige Telefonnummer angeben.
+            </p>
+          </div>
+        </div>
+
+        <!-- Datum -->
+        <div
+          class="field two-col"
+          [class.invalid]="date.invalid && (date.dirty || date.touched)"
+        >
+          <label for="date">Datum *</label>
+          <input
+            id="date"
+            name="date"
+            type="date"
+            ngModel
+            #date="ngModel"
+            required
+          />
+          <div
+            class="errors"
+            *ngIf="date.invalid && (date.dirty || date.touched)"
+          >
+            <p *ngIf="date.errors?.['required']">Datum ist erforderlich.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Abholort -->
+      <div
+        class="field"
+        [class.invalid]="pickup.invalid && (pickup.dirty || pickup.touched)"
+      >
+        <label for="pickup">Abholort *</label>
+        <input
+          id="pickup"
+          name="pickup"
+          type="text"
+          ngModel
+          #pickup="ngModel"
+          required
+          placeholder="z. B. Herrengasse 1, 8010 Graz"
+          autocomplete="street-address"
+        />
+        <div
+          class="errors"
+          *ngIf="pickup.invalid && (pickup.dirty || pickup.touched)"
+        >
+          <p *ngIf="pickup.errors?.['required']">Abholort ist erforderlich.</p>
+        </div>
+      </div>
+
+      <!-- Ziel -->
+      <div
+        class="field"
+        [class.invalid]="dropoff.invalid && (dropoff.dirty || dropoff.touched)"
+      >
+        <label for="dropoff">Ziel *</label>
+        <input
+          id="dropoff"
+          name="dropoff"
+          type="text"
+          ngModel
+          #dropoff="ngModel"
+          required
+          placeholder="z. B. Hauptbahnhof Graz"
+          autocomplete="off"
+        />
+        <div
+          class="errors"
+          *ngIf="dropoff.invalid && (dropoff.dirty || dropoff.touched)"
+        >
+          <p *ngIf="dropoff.errors?.['required']">Ziel ist erforderlich.</p>
+        </div>
+      </div>
+
+      <!-- Uhrzeit -->
+      <div
+        class="field two-col"
+        [class.invalid]="time.invalid && (time.dirty || time.touched)"
+      >
+        <label for="time">Uhrzeit *</label>
+        <input
+          id="time"
+          name="time"
+          type="time"
+          ngModel
+          #time="ngModel"
+          required
+        />
+        <div
+          class="errors"
+          *ngIf="time.invalid && (time.dirty || time.touched)"
+        >
+          <p *ngIf="time.errors?.['required']">Uhrzeit ist erforderlich.</p>
+        </div>
+      </div>
+
+      <!-- Passagiere -->
+      <div
+        class="field two-col"
+        [class.invalid]="
+          passengers.invalid && (passengers.dirty || passengers.touched)
+        "
+      >
+        <label for="passengers">Passagiere *</label>
+        <input
+          id="passengers"
+          name="passengers"
+          type="number"
+          ngModel
+          #passengers="ngModel"
+          required
+          min="1"
+          max="8"
+          placeholder="1"
+        />
+        <div
+          class="errors"
+          *ngIf="passengers.invalid && (passengers.dirty || passengers.touched)"
+        >
+          <p *ngIf="passengers.errors?.['required']">Bitte Anzahl angeben.</p>
+          <p *ngIf="passengers.errors?.['min']">Mindestens 1 Person.</p>
+          <p *ngIf="passengers.errors?.['max']">Maximal 8 Personen.</p>
+        </div>
+      </div>
+
+      <!-- bestellVersion -->
+      <div
+        class="field two-col"
+        [class.invalid]="payment.invalid && (payment.dirty || payment.touched)"
+      >
+        <label for="payment">Buchungsart</label>
+        <select id="payment" name="payment" ngModel #payment="ngModel" required>
+          <option value="" disabled selected>Bitte wählen</option>
+          <option value="cash">Personen-Fahrt</option>
+          <option value="card">Boten-Fahrt</option>
+          <option value="online">Vip-Fahrten</option>
+        </select>
+        <div
+          class="errors"
+          *ngIf="payment.invalid && (payment.dirty || payment.touched)"
+        >
+          <p *ngIf="payment.errors?.['required']">Buchungsart wählen.</p>
+        </div>
+      </div>
+      <div
+        class="field two-col"
+        [class.invalid]="payment.invalid && (payment.dirty || payment.touched)"
+      >
+        <label for="payment">Zahlungsmethode *</label>
+        <select id="payment" name="payment" ngModel #payment="ngModel" required>
+          <option value="" disabled selected>Bitte wählen</option>
+          <option value="cash">Barzahlung</option>
+          <option value="card">Karte</option>
+        </select>
+        <div
+          class="errors"
+          *ngIf="payment.invalid && (payment.dirty || payment.touched)"
+        >
+          <p *ngIf="payment.errors?.['required']">Zahlungsmethode wählen.</p>
+        </div>
+      </div>
+
+      <!-- Hinweise -->
+      <div class="field full">
+        <label for="notes">Hinweise (optional)</label>
+        <textarea
+          id="notes"
+          name="notes"
+          ngModel
+          rows="3"
+          placeholder="z. B. Kindersitz, viel Gepäck …"
+        ></textarea>
+      </div>
+
+      <!-- AGB -->
+      <div
+        class="field full checkbox"
+        [class.invalid]="terms.invalid && (terms.dirty || terms.touched)"
+      >
+        <label>
+          <input
+            type="checkbox"
+            name="terms"
+            ngModel
+            #terms="ngModel"
+            required
+          />
+          Ich akzeptiere die AGB und Datenschutzhinweise *
+        </label>
+        <div
+          class="errors"
+          *ngIf="terms.invalid && (terms.dirty || terms.touched)"
+        >
+          <p>Bitte AGB bestätigen.</p>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Aktionen -->
+    <div class="actions">
+      <button
+        type="submit"
+        class="btn-primary"
+        [disabled]="bookingForm.invalid"
+      >
+        Fahrt verbindlich buchen
+      </button>
+      <a class="btn-call" href="tel:+436641234567" aria-label="Direkt anrufen"
+        >📞 Direkt anrufen</a
+      >
+    </div>
+  </form>
+</div>

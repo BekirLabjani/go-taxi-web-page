@@ -1,0 +1,248 @@
+//===============================================
+// 1. VARIABLEN & MIXINS
+//===============================================
+
+// Farben
+$primary-color: #007bff;
+$primary-color-dark: #0056b3;
+$danger-color: #dc3545;
+$text-color: #343a40;
+$label-color: #495057;
+$border-color: #ced4da;
+$border-color-focus: #80bdff;
+$background-light: #f8f9fa;
+$background-card: #ffffff;
+$white: #fff;
+$placeholder-color: #a9a9a9;
+
+// Typografie
+$font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol';
+
+// Abstände & Radien
+$spacing-unit: 1rem; // 16px
+$border-radius: 6px;
+
+// Mixins
+@mixin card-shadow {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+//===============================================
+// 2. BASIS- & LAYOUT-STILE
+//===============================================
+
+// Globale Stile
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-base;
+  background-color: $background-light;
+  color: $text-color;
+  margin: 0;
+  padding: $spacing-unit * 1.5;
+}
+
+// Container, der das Formular zentriert
+.form-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+//===============================================
+// 3. FORMULAR-STILE
+//===============================================
+
+.booking-form {
+  width: 100%;
+  max-width: 800px;
+
+  // Die "Card" Ansicht
+  .card {
+    background: $background-card;
+    border-radius: $border-radius * 2;
+    padding: $spacing-unit * 2;
+    border: none;
+    @include card-shadow;
+
+    // Grid Layout für die Formularfelder
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-unit * 1.5;
+
+    legend {
+      grid-column: 1 / -1; // Spannt über alle Spalten
+      font-size: 1.75rem;
+      font-weight: 600;
+      border-bottom: 1px solid $border-color;
+      width: 100%;
+    }
+  }
+
+  // Wrapper für ein Label + Input
+  .field {
+    display: flex;
+    flex-direction: column;
+
+    // Modifikatoren für die Breite im Grid
+    &.two-col {
+      // Standardverhalten im 2-spaltigen Grid
+    }
+    &.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 500;
+      margin-bottom: $spacing-unit / 3;
+      color: $label-color;
+      font-size: 0.9rem;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border-radius: $border-radius;
+      border: 1px solid $border-color;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+      &:focus {
+        outline: none;
+        border-color: $border-color-focus;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.25);
+      }
+
+      &::placeholder {
+        color: $placeholder-color;
+        opacity: 1;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    // Spezielles Styling für Checkboxen
+    &.checkbox {
+      flex-direction: row;
+      align-items: center;
+      margin-top: $spacing-unit;
+      user-select: none;
+
+      label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+        cursor: pointer;
+      }
+
+      input[type='checkbox'] {
+        width: auto;
+        margin-right: $spacing-unit / 2;
+        height: 1em;
+        width: 1em;
+        cursor: pointer;
+      }
+    }
+
+    // Styling für den Invalid-State von Angular
+    &.invalid {
+      label {
+        color: $danger-color;
+      }
+
+      input,
+      select,
+      textarea {
+        border-color: $danger-color;
+
+        &:focus {
+          box-shadow: 0 0 0 3px rgba($danger-color, 0.25);
+        }
+      }
+    }
+
+    // Fehler-Nachrichten
+    .errors {
+      margin-top: $spacing-unit / 3;
+      p {
+        color: $danger-color;
+        font-size: 0.875rem;
+        margin: 0;
+      }
+    }
+  }
+
+  // Sektion für Buttons
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: $spacing-unit * 2;
+    gap: $spacing-unit;
+
+    .btn-primary {
+      background-color: $primary-color;
+      color: $white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      flex-grow: 1;
+
+      &:hover {
+        background-color: $primary-color-dark;
+      }
+
+      &:disabled {
+        background-color: #a0a0a0;
+        cursor: not-allowed;
+      }
+    }
+
+    .btn-call {
+      color: $primary-color;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.8rem 1.5rem;
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      transition: background-color 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        background-color: lighten($primary-color, 40%);
+        border-color: lighten($primary-color, 30%);
+      }
+    }
+  }
+}
+
+//===============================================
+// 4. RESPONSIVE ANPASSUNGEN
+//===============================================
+
+@media (max-width: 768px) {
+  .booking-form .card {
+    // Wechsel auf einspaltiges Layout
+    grid-template-columns: 1fr;
+  }
+
+  .booking-form .actions {
+    flex-direction: column-reverse; // Anruf-Button nach oben
+    align-items: stretch;
+    text-align: center;
+  }
+}

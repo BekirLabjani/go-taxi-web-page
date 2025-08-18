@@ -1,0 +1,72 @@
+.hero {
+  position: relative;
+  height: calc(100vh - 81px);
+  background: url("../../../assets/img/cars-img/WhatsApp\ Bild\ 2025-04-08\ um\ 21.24.34_a05fb6ef_cleanup.jpg")
+              no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 90px;
+  
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    color: white;
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+
+      span {
+        color: #facc15;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+
+      .btn-primary {
+        background: #facc15;
+        color: #111;
+        padding: 0.8rem 1.6rem;
+        border-radius: 8px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: 0.3s;
+
+        &:hover {
+          background: darken(#facc15, 10%);
+        }
+      }
+
+      .btn-secondary {
+        background: rgba(255,255,255,0.2);
+        color: white;
+        padding: 0.8rem 1.6rem;
+        border-radius: 8px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: 0.3s;
+
+        &:hover {
+          background: rgba(255,255,255,0.3);
+        }
+      }
+    }
+  }
+}

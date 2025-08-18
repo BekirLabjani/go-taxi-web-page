@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit,HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +10,7 @@ import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 })
 export class NavbarComponent  {
 
-    isOpen = true; // Zustand für Dropdown
+    isOpen = false; // Zustand für Dropdown
 
   toggleMenu() {
     this.isOpen = !this.isOpen;
@@ -18,5 +18,15 @@ export class NavbarComponent  {
 
   closeMenu() {
     this.isOpen = false;
+  }
+  // Klicks überall auf der Seite abfangen
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+
+    // Wenn der Klick nicht auf dem Button oder im Menü war -> schließen
+    if (!target.closest('.dropdown')) {
+      this.isOpen = false;
+    }
   }
 }
