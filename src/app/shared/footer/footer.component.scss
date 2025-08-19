@@ -117,3 +117,17 @@
     }
   }
 }
+@media (max-width: 700px) {
+  .footer-nav {
+    display: none;
+  }
+  .footer-bottom {
+    flex-direction: column;
+  }
+  .footer-links{
+    flex-direction: column;
+  }
+  form {
+    flex-direction: column;
+  }
+}

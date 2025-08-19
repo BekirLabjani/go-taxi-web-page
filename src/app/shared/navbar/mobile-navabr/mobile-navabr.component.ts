@@ -1,31 +1,31 @@
+import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-mobile-navabr',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './mobile-navabr.component.html',
   styleUrl: './mobile-navabr.component.scss'
 })
 export class MobileNavabrComponent {
- @ViewChild('navMenu', { static: true }) navMenu!: ElementRef;
-  @ViewChild('togglerBtn', { static: true }) togglerBtn!: ElementRef;
+  isOpen = false;
 
-  menuOpen = false;
+  toggleMenu() {
+    this.isOpen = !this.isOpen;
+    this.toggleBodyScroll(this.isOpen);
+  }
 
-  constructor(private renderer: Renderer2) {}
+  closeMenu() {
+    this.isOpen = false;
+    this.toggleBodyScroll(false);
+  }
 
-  toggleMenu(): void {
-    this.menuOpen = !this.menuOpen;
-
-    if (this.menuOpen) {
-      this.renderer.addClass(this.navMenu.nativeElement, 'active');
-      this.renderer.addClass(this.togglerBtn.nativeElement, 'active');
-      this.renderer.setAttribute(this.togglerBtn.nativeElement, 'aria-expanded', 'true');
+  private toggleBodyScroll(disable: boolean) {
+    if (disable) {
+      document.body.style.overflow = 'hidden'; // kein Scrollen
     } else {
-      this.renderer.removeClass(this.navMenu.nativeElement, 'active');
-      this.renderer.removeClass(this.togglerBtn.nativeElement, 'active');
-      this.renderer.setAttribute(this.togglerBtn.nativeElement, 'aria-expanded', 'false');
+      document.body.style.overflow = ''; // Standard zurück
     }
   }
 }

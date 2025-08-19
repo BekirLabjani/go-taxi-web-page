@@ -1,25 +1,33 @@
-<header class="mobile-navbar">
-    <div class="mobile-navbar-header">
-        <a href="/" class="mobile-navbar-logo">
-            <img src="assets/img/logo/logo-mobile.png" alt="Firmenlogo">
-        </a>
-      <button class="mobile-navbar-toggler"
-        aria-label="Menü öffnen"
-        aria-expanded="false"
-        (click)="toggleMenu()"
-        #togglerBtn>
-    <span class="toggler-icon"></span>
-    <span class="toggler-icon"></span>
-    <span class="toggler-icon"></span>
-</button>
-    </div>
+<nav class="mobile-navbar">
+  <!-- Logo -->
+  <div class="logo">
+    <a href="#">
+      <img src="./assets/img/logo/ChatGPT Image 17. Aug. 2025, 11_09_21.png" alt="Logo" />
+    </a>
+  </div>
 
-<nav class="mobile-navbar-nav" #navMenu>
-  <ul>
-    <li><a href="/" (click)="toggleMenu()">Startseite</a></li>
-    <li><a href="#price" (click)="toggleMenu()">Preis</a></li>
-    <li><a href="#whyUs" (click)="toggleMenu()">Warum Wir</a></li>
-    <li><a href="#contact" (click)="toggleMenu()">Kontakt</a></li>
-  </ul>
+  <!-- Navigation -->
+  <div class="nav-container">
+    <a href="#" class="links">Taxi Buchen</a>
+    <a href="#" class="links">Fahrzeuge ansehen</a>
+    <a href="#" class="links">Kontakt aufnehmen</a>
+  </div>
+
+  <!-- Call Button -->
+  <div class="call-me">
+    <button class="call-btn" id="call-btn">Jetzt Anrufen</button>
+  </div>
+
+  <!-- Burger Menu -->
+  <button class="burger" (click)="toggleMenu()">
+    ☰
+  </button>
+
+  <!-- Dropdown Menü -->
+  <div class="menu" *ngIf="isOpen">
+    <a href="#buchen" (click)="closeMenu()">Taxi Buchen</a>
+    <a href="#fahrzeuge" (click)="closeMenu()">Fahrzeuge ansehen</a>
+    <a href="#kontakt" (click)="closeMenu()">Kontakt aufnehmen</a>
+    <a href="tel:+436601234567" (click)="closeMenu()">📞 Jetzt anrufen</a>
+  </div>
 </nav>
-</header>

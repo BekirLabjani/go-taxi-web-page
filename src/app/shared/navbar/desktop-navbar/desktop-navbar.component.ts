@@ -1,17 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild, AfterViewInit,HostListener } from '@angular/core';
-import { MobileNavabrComponent } from "./mobile-navabr/mobile-navabr.component";
-import { DesktopNavbarComponent } from "./desktop-navbar/desktop-navbar.component";
+import { Component,HostListener } from '@angular/core';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'app-desktop-navbar',
   standalone: true,
-  imports: [CommonModule, MobileNavabrComponent, DesktopNavbarComponent],
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  imports: [CommonModule],
+  templateUrl: './desktop-navbar.component.html',
+  styleUrl: './desktop-navbar.component.scss'
 })
-export class NavbarComponent  {
-
+export class DesktopNavbarComponent {
     isOpen = false; // Zustand für Dropdown
 
   toggleMenu() {

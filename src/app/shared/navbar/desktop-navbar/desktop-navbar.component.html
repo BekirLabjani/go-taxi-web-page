@@ -1,0 +1,32 @@
+<nav class="navbar">
+  <div class="logo">
+    <a href="#"
+      ><img
+        src="./assets/img/logo/ChatGPT Image 17. Aug. 2025, 11_09_21.png"
+        alt="Logo"
+    /></a>
+  </div>
+  <div class="nav-container">
+    <a href="http://" class="links">Taxi Buchen</a>
+    <a href="http://" class="links">Fahrzeuge ansehen</a>
+    <a href="http://" class="links">Kontakt aufnehmen</a>
+  </div>
+<div class="dropdown">
+  <button (click)="toggleMenu()" class="dropdown-btn">
+    Mehr erfahren ▼
+  </button>
+
+  <div *ngIf="isOpen" class="dropdown-menu">
+    <a (click)="closeMenu()" href="#ueber-uns">Über uns</a>
+    <a (click)="closeMenu()" href="#preise">Preise prüfen</a>
+    <a (click)="closeMenu()" href="#faq">Häufige Fragen</a>
+  </div>
+</div>
+
+
+
+  <div class="nav-container-box">
+    <button class="btn-group">Buchen</button>
+    <button class="btn-group">Anrufen</button>
+  </div>
+</nav>
