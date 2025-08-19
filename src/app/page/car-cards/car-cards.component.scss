@@ -1,0 +1,90 @@
+$primary: #c9a400; // Taxi-Gelb
+$ink: #111;
+$bg: #4B3C06;
+$white: #fff;
+$radius: 16px;
+
+.car-cards {
+  border-top: solid 1px;
+  padding: 4rem 2rem;
+  background: $bg;
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.562);
+    border-radius: $radius;
+    box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0,0,0,.12);
+    }
+
+    .car-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      .car-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: .5rem;
+        color: $ink;
+      }
+
+      .car-desc {
+        flex: 1;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #444;
+        margin-bottom: 1rem;
+      }
+
+      .features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1.5rem 0;
+
+        li {
+          font-size: .95rem;
+          color: $ink;
+          margin-bottom: .4rem;
+        }
+      }
+
+      .btn-primary {
+        align-self: flex-start;
+        background: $primary;
+        color: $ink;
+        font-weight: 700;
+        padding: .7rem 1.4rem;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        transition: background .2s ease;
+
+        &:hover {
+          background: darken($primary, 8%);
+        }
+      }
+    }
+  }
+}

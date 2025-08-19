@@ -50,7 +50,7 @@
             ngModel
             #phone="ngModel"
             required
-            pattern="^\\+?[0-9\\s\\-]{7,15}$"
+            pattern="^00[1-9][0-9]{6,14}$"
             autocomplete="tel"
             placeholder="+43 660 123 4567"
           />
@@ -191,10 +191,18 @@
       <!-- bestellVersion -->
       <div
         class="field two-col"
-        [class.invalid]="payment.invalid && (payment.dirty || payment.touched)"
+        [class.invalid]="
+          bookingType.invalid && (bookingType.dirty || bookingType.touched)
+        "
       >
-        <label for="payment">Buchungsart</label>
-        <select id="payment" name="payment" ngModel #payment="ngModel" required>
+        <label for="bookingType">Buchungsart</label>
+        <select
+          id="bookingType"
+          name="bookingType"
+          ngModel
+          #bookingType="ngModel"
+          required
+        >
           <option value="" disabled selected>Bitte wählen</option>
           <option value="cash">Personen-Fahrt</option>
           <option value="card">Boten-Fahrt</option>
@@ -202,11 +210,24 @@
         </select>
         <div
           class="errors"
-          *ngIf="payment.invalid && (payment.dirty || payment.touched)"
+          *ngIf="
+            bookingType.invalid && (bookingType.dirty || bookingType.touched)
+          "
         >
-          <p *ngIf="payment.errors?.['required']">Buchungsart wählen.</p>
+          <p *ngIf="bookingType.errors?.['required']">Buchungsart wählen.</p>
         </div>
       </div>
+
+      <div class="field two-col">
+        <label for="car">Fahrzeug</label>
+        <select id="car" name="car" ngModel #car="ngModel" required>
+          <option value="" disabled selected>Bitte wählen</option>
+          <option value="cash">Toyota Rav4 Hybrid</option>
+          <option value="card">BMW 5er</option>
+          <option value="online">Egal</option>
+        </select>
+      </div>
+
       <div
         class="field two-col"
         [class.invalid]="payment.invalid && (payment.dirty || payment.touched)"

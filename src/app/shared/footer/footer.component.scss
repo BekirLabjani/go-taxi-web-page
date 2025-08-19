@@ -1,85 +1,118 @@
-.site-footer {
-  background-color: #1a1a1a;
-  color: #f1f1f1;
-  font-size: 0.95rem;
-  padding: 3rem 1rem 1.5rem;
+.footer {
+  background: #f9f9f9;
+  color: #333;
+  padding: 2rem 4rem;
+  font-family: Arial, sans-serif;
+  border-top: 1px solid #ddd;
 
-  a {
-    color: #ffd700;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  .footer-container {
+  .footer-top {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 1400px;
-    margin: 0 auto;
+    align-items: flex-start;
+    flex-wrap: wrap;
     gap: 2rem;
+    margin-bottom: 1.5rem;
 
-    .footer-column {
-  
+    .footer-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 1.5rem;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      font-weight: bold;
 
-      h3, h4 {
-        color: #ffffff;
-        margin-bottom: 1rem;
-      }
+      li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.3s;
 
-      p, li {
-        margin: 0.5rem 0;
-      }
-
-      ul {
-        list-style: none;
-        padding: 0;
-        cursor: pointer;
-
-        li {
-          margin-bottom: 0.5rem;
+        &:hover {
+          color: #d4a017; // Taxi-Gelb Akzentfarbe
         }
       }
     }
-  }
 
-  .footer-bottom {
-    border-top: 1px solid #444;
-    margin-top: 2rem;
-    padding-top: 1rem;
-    text-align: center;
+    .footer-logo {
+      > img {
+        width: 150px;
+        height: 100px;
+      }
+    }
+    .footer-newsletter {
+      form {
+        display: flex;
+        gap: 0.5rem;
 
-    .footer-socials {
-      margin-bottom: 0.5rem;
+        input {
+          padding: 0.6rem 1rem;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          flex: 1;
+        }
 
-      a {
-        display: inline-block;
-        margin: 0 0.5rem;
-
-        img {
-          width: 24px;
-          height: 24px;
-          filter: brightness(0) invert(1);
-          transition: transform 0.2s;
+        button {
+          padding: 0.6rem 1.2rem;
+          background: #d4a017;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background 0.3s;
 
           &:hover {
-            transform: scale(1.1);
+            background: #b8890f;
           }
         }
       }
+
+      p {
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+        color: #666;
+
+        a {
+          color: #d4a017;
+          text-decoration: none;
+        }
+      }
     }
   }
 
-  @media (max-width: 768px) {
-    .footer-container {
-      align-items: flex-start;
-    }
+  hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 1.5rem 0;
+  }
 
-    .footer-bottom {
-      .footer-socials {
-        margin-bottom: 1rem;
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+
+      li a {
+        text-decoration: none;
+        color: #666;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #d4a017;
+        }
       }
     }
   }
