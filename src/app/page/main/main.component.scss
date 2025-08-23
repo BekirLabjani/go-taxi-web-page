@@ -14,7 +14,8 @@
     background: rgba(0,0,0,0.55);
   }
 
-  .hero-content {
+  .hero-content { 
+   padding-inline: 20px;
     position: relative;
     z-index: 1;
     max-width: 800px;
@@ -68,5 +69,15 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 800px) {
+ .hero-content{
+  text-align: center;
+    background: rgba(255, 255, 255, 0.068); 
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem;
   }
 }
